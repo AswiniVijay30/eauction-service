@@ -1,11 +1,11 @@
 # eauction-service
-Github Link -  https://github.com/FseProject2519/Tweet-Repository 
+Github Link -  https://github.com/AswiniVijay30/eauction-service
 
 ## Documents  
 1. Swagger URLs:  
     a. Product Mgmt Service - http://localhost:8081/swagger-ui/index.html#/  
     b. Product Audit Service - http://localhost:8082/swagger-ui/index.html#/ 
-2. Postman Collection - https://github.com/FseProject2519/Tweet-Repository/blob/sam-dev/Project_Documents/Postman_Api_Collection/Fse1_2519_Tweet_App_Collection.postman_collection.json  
+2. Postman Collection - https://github.com/AswiniVijay30/eauction-service/Project Documents/ProductManagement.postman_collection.json
 3. Maven Project Documentation (Download and open index.html in browser) - https://github.com/FseProject2519/Tweet-Repository/blob/sam-dev/Project_Documents/Maven_Site/site/index.html   
 4. Surefire Test Report - https://github.com/FseProject2519/Tweet-Repository/blob/sam-dev/Project_Documents/Reports/MAVEN_SUREFIRE_TEST_REPORT.pdf  
 5. Unit Test Report - https://github.com/FseProject2519/Tweet-Repository/blob/sam-dev/Project_Documents/Reports/UNIT_TEST_REPORT.pdf  

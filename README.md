@@ -6,16 +6,10 @@ Github Link -  https://github.com/AswiniVijay30/eauction-service
     a. Product Mgmt Service - http://localhost:8081/swagger-ui/index.html#/  
     b. Product Audit Service - http://localhost:8082/swagger-ui/index.html#/ 
 2. Postman Collection - https://github.com/AswiniVijay30/eauction-service/tree/main/Project%20Documents/ProductManagement.postman_collection.json
-3. Maven Project Documentation (Download and open index.html in browser) - https://github.com/FseProject2519/Tweet-Repository/blob/sam-dev/Project_Documents/Maven_Site/site/index.html   
-4. Surefire Test Report - https://github.com/FseProject2519/Tweet-Repository/blob/sam-dev/Project_Documents/Reports/MAVEN_SUREFIRE_TEST_REPORT.pdf  
-5. Unit Test Report - https://github.com/FseProject2519/Tweet-Repository/blob/sam-dev/Project_Documents/Reports/UNIT_TEST_REPORT.pdf  
-6. Error/Defect Log - https://github.com/FseProject2519/Tweet-Repository/blob/main/Project_Documents/Reports/ERROR_DEFECT_REPORT.pdf  
-7. Project Management - JIRA - https://github.com/FseProject2519/Tweet-Repository/blob/main/Project_Documents/Screenshots/PROJECT_MANAGEMENT_JIRA_SCREENSHOTS.pdf  
-8. Sonar Report - https://github.com/FseProject2519/Tweet-Repository/blob/sam-dev/Project_Documents/Reports/SONAR_REPORT.pdf  
-9. Screenshots - https://github.com/FseProject2519/Tweet-Repository/tree/sam-dev/Project_Documents/Screenshots  
+3. Screenshots - https://github.com/AswiniVijay30/eauction-service/tree/main/Project%20Documents/  
   
 ## SECTION A - Setting up the service in local:  
-1. Clone the project in local using the command : git clone https://github.com/FseProject2519/Tweet-Repository.git   
+1. Clone the project in local using the command : git clone https://github.com/AswiniVijay30/eauction-service.git   
 2. Open STS IDE  
 3. File -> Import -> Existing Maven Project -> Select Tweet Repository Folder -> Finish  
 4. Clean and Build the project as shown in SECTION B  
@@ -23,11 +17,13 @@ Github Link -  https://github.com/AswiniVijay30/eauction-service
 ## SECTION B - Maven Build:  
 1. Go to: Run -> Run Configurations -> Maven Build  
 2. Enter the properties as shown below for the respective services  
-3. Tweet Service:  
-![image](https://user-images.githubusercontent.com/104539687/173216312-4901d028-74af-4ac3-a1a0-388b5776b6e1.png)  
+3. Product Mgmt Service:  
+![image](https://user-images.githubusercontent.com/86978327/199277440-6910db59-0b10-4318-8829-d3d5d753f1b6.png)
+ 
   
-4. Authorization Service:  
-![image](https://user-images.githubusercontent.com/104539687/173216470-4b7f6667-7599-4345-af8e-95bf324db120.png)  
+4. Product Audit Service:  
+![image](https://user-images.githubusercontent.com/86978327/199278112-db4122d9-bda2-422f-a838-5ec5a7d5bbbe.png)
+  
   
 5. Right click on the service in the Package Explorer and select: Maven -> Update Project -> Check Update project configuration from pom.xml, Refresh workspace   resources from  local filesystem, Clean projects -> Ok  
 6. Right click on the service in the Package Explorer and select: Refresh  
@@ -38,10 +34,10 @@ Github Link -  https://github.com/AswiniVijay30/eauction-service
 2. Perform Maven clean and build for all the services as shown in SECTION B  
 3. Go to: Window -> Show View -> Boot Dashboard  
 4. Start the services through Boot Dashboard in the following order:  
-    authorization service -> notification service -> tweet service  
+    Product mgmt service -> Product audit service   
   
 ## SECTION D - Running the services with Docker:  
-1. Update auth.client.url in the tweet service application.properties  
+1. Update auth.client.url in the Product mgmt service application.properties  
 2. Perform Maven clean and build for all the services as shown in SECTION B   
 3. Run the following commands in the outermost TweetRepository folder where docker-compose.yml is present:  
       a. docker-compose build  
@@ -68,31 +64,6 @@ Github Link -  https://github.com/AswiniVijay30/eauction-service
     c. mvn site -DgenerateReports=false  
 2. Open /tweet-service/target/site/surefire-report.html in a browser  
   
-## SECTION G - Running Prometheus/Grafana:  
-PROMETHEUS:  
-1. Enter [Your IP address]:port in /tweet-service/src/main/resources/prometheus.yml  
-2. Start the application in STS - SECTION C or through Docker - SECTION D (preferred)  
-3. Open http://localhost:8090/actuator/prometheus in a browser to verify if data is getting generated  
-  ![image](https://user-images.githubusercontent.com/104539687/173221594-ab002ef9-c9e0-40a3-9be4-1b1dc756da79.png)  
-4. Run the following commands:  
-    a. docker pull prom/prometheus (Only for the first time)  
-    b. docker run -d -p 9090:9090 -v (complete path to the prometheus.yml file):/etc/prometheus/prometheus.yml prom/prometheus  
-  (Eg.: docker run -d -p 9090:9090 -v D:/mydisk/monitoring/src/main/resources/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus)  
-5. Open http://localhost:9090/  
-6. Go to: Status -> Targets and check if all statuses are UP  
-![image](https://user-images.githubusercontent.com/104539687/173221655-d10a8c40-fca4-4fee-9eac-61417593688a.png)  
-
-GRAFANA:  
-1. Run the following commands:  
-    a. docker pull grafana/grafana (Only for the first time)  
-    b. docker run -d -p 3000:3000 grafana/grafana  
-2. Open http://localhost:3000/login  
-3. Enter username = 'admin' and password = 'admin'  
-4. Go to: Configuration -> Data sources -> Add data source -> Prometheus  
-5. Enter URL: http://[Your IP address]:9090 and click 'Save & Test'    
-6. Go to: Create -> Import -> Enter 4701 (in Import via grafana.com text box) -> Click Load -> Select 'Prometheus' in the Prometheus drop down list -> Click Import  
-7. Wait for around 20 mins and perform some api calls to see the statistics in the Grafana dashboard  
-![image](https://user-images.githubusercontent.com/104539687/173221548-0d68c973-bf5e-43d1-912f-9617303149ac.png)  
   
 ## SECTION H - Setting up ELK:  
 1. Start the Docker containers as given in SECTON D  
@@ -102,9 +73,7 @@ GRAFANA:
 5. Select @timestamp in time filter field name and click Create Index Pattern  
 6. Go to: Discover (to see the logs)  
 7. On the left hand side under 'Available Fields' add 'message' field to get the logged messages as follows  
-  ![image](https://user-images.githubusercontent.com/104539687/173272560-cf882511-3021-4ceb-b829-e959e19b03dc.png)  
+  ![image](https://user-images.githubusercontent.com/86978327/199468748-ad7a8506-7c38-458e-b310-c230f1b6086d.png)
+ 
     
-## SECTION I - Rabbit MQ Setup:  
-1. Start RabbitMQ service in local  
-2. Open http://localhost:15672 to view Rabbit MQ management console  
-3. Go to queues tab to see the created queues  
+

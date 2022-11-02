@@ -1,6 +1,11 @@
 # eauction-service
 Github Link -  https://github.com/AswiniVijay30/eauction-service
 
+AWS Architecture
+
+![AWS Arch](https://user-images.githubusercontent.com/86978327/199520414-5584994e-f7fe-4c3c-9556-64b2cb063af5.png)
+
+
 ## Documents  
 1. Swagger URLs:  
     a. Product Mgmt Service - http://localhost:8081/swagger-ui/index.html#/  
